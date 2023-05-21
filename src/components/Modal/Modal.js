@@ -1,5 +1,5 @@
 import React from "react";
-import { Transition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import "./Modal.css";
 
 const modal = (props) => {
@@ -12,18 +12,23 @@ const modal = (props) => {
     }
 
   return (
-    <Transition in={props.show} timeout={duration} mountOnEnter unmountOnExit>
+    <CSSTransition in={props.show} timeout={duration} mountOnEnter unmountOnExit classNames={{
+        enter: '',
+        enterActive: 'ModalOpen',
+        exit: '',
+        exitActive: 'ModalClose'
+    }}>
 
     {state => (
 
-    <div className={`Modal ${state === 'entering'  ? 'ModalOpen' : state === 'exiting' ? 'ModalClose' : null}`}>
+    <div className="Modal">
       <h1>A Modal</h1>
       <button className="Button" onClick={props.closed}>
         Dismiss
       </button>
     </div>
     )}
-    </Transition>
+    </CSSTransition>
   );
 };
 

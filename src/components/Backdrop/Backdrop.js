@@ -4,6 +4,7 @@ import "./Backdrop.css";
 
 const backdrop = (props) => {
   return (
+    
     <div
       style={{ display: `${props.show ? "block" : "none"}` }}
       className="Backdrop"
